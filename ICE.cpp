@@ -6,27 +6,28 @@ using namespace std;
 enum Month { None, Jan, Feb, Mar, Apr, May, Jun,
             Jul, Aug, Sep, Oct, Nov, Dec };
 
-struct DOB {
-    Month month;
-    int day;
-    int year;
+class DOB {
+    public:
+        Month month = None;
+        int day = 0;
+        int year = 0;
+
+        void setMonth(Month m)  { month = m; }
+        void setDay(int d)      { day = d; }
+        void setYear(int y)     { year = y; }
+        string getDate()        {
+            return to_string(month)+"/"+to_string(day)+"/"+to_string(year);
+        }
 };
 
-int main()
-{
-    DOB dob, phd;
+int main() {
+    DOB dob;
 
-    dob.month = Mar;
-    dob.day   = 14;
-    dob.year  = 2012;
+    dob.setMonth(Mar);
+    dob.setDay(14);
+    dob.setYear(2012);
 
-    cout << dob.month << "/" << dob.day << "/" << dob.year << endl;
-
-    phd.month = Feb;
-    phd.day   = 23;
-    phd.year  = 1998;
-
-    cout << phd.month << "/" << phd.day << "/" << phd.year << endl;
+    cout << dob.getDate() << endl;
 
     return 0;
 }
